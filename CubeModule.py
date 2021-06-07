@@ -505,7 +505,7 @@ def ind2sub(array_shape, ind):
 
 
 
-def plot_csg_t(gather_data,title="CSG",vmax, vmin,extent):
+def plot_csg_t(gather_data,vmax, vmin,extent,title="CSG",):
     
     plt.imshow(gather_data, extent=extent, \
             vmin=vmin, vmax=vmax, cmap='gray', aspect='auto')
@@ -515,7 +515,7 @@ def plot_csg_t(gather_data,title="CSG",vmax, vmin,extent):
     plt.title(title)
     plt.colorbar()
 
-def plot_csg_fk(gather_data,title="CSG in FK ",vmax, vmin,extent):
+def plot_csg_fk(gather_data, vmax, vmin,extent,title="CSG in FK "):
     
     plot_data = np.absolute(np.fft.fftshift(np.fft.fft(np.fft.rfft(gather_data, axis=0), axis=1), axes=1))
     plt.imshow(plot_data, extent=[xmin, xmax, ymax, ymin], \
