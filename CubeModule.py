@@ -505,9 +505,9 @@ def ind2sub(array_shape, ind):
 
 
 
-def plot_csg_t(gather_data,vmax, vmin,extent,title="CSG",):
+def plot_csg_t(gather_data,vmax, vmin, extent_xt,title="CSG",):
     
-    plt.imshow(gather_data, extent=extent, \
+    plt.imshow(gather_data, extent=extent_xt, \
             vmin=vmin, vmax=vmax, cmap='gray', aspect='auto')
     
     plt.xlabel("Detector location (km)")
@@ -515,10 +515,10 @@ def plot_csg_t(gather_data,vmax, vmin,extent,title="CSG",):
     plt.title(title)
     plt.colorbar()
 
-def plot_csg_fk(gather_data, vmax, vmin,extent,title="CSG in FK "):
+def plot_csg_fk(gather_data, vmax, vmin, extent_fk,title="CSG in FK "):
     
     plot_data = np.absolute(np.fft.fftshift(np.fft.fft(np.fft.rfft(gather_data, axis=0), axis=1), axes=1))
-    plt.imshow(plot_data, extent=[xmin, xmax, ymax, ymin], \
+    plt.imshow(plot_data, extent=extent_fk, \
             vmin=vmin, vmax=vmax, cmap='jet', aspect='auto')
     
     plt.xlabel("Wavenumber (1/m)")
